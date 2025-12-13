@@ -4,7 +4,6 @@ import cssLogo from './assets/tech_logo/css.png';
 import sassLogo from './assets/tech_logo/sass.png';
 import javascriptLogo from './assets/tech_logo/javascript.png';
 import reactjsLogo from './assets/tech_logo/reactjs.png';
-import angularLogo from './assets/tech_logo/angular.png';
 import reduxLogo from './assets/tech_logo/redux.png';
 import nextjsLogo from './assets/tech_logo/nextjs.png';
 import tailwindcssLogo from './assets/tech_logo/tailwindcss.png';
@@ -38,8 +37,8 @@ import newtonschoolLogo from './assets/company_logo/bitnest.jpeg';
 import pny from './assets/education_logo/pny.png';
 import uos from './assets/education_logo/uos.png';
 
-
 import movierecLogo from './assets/work_logo/movie_rec.png';
+import study from './assets/work_logo/study.png';
 import taskremLogo from './assets/work_logo/task_rem.png';
 import webverLogo from './assets/work_logo/web_dig.png';
 import cmLogo from './assets/work_logo/cm.png';
@@ -208,6 +207,7 @@ export const projects = [
     github: "#",
     webapp: "https://imagsearch.netlify.app/"
   },
+
   {
     id: 8,
     title: "Image Background Remover",
@@ -216,5 +216,14 @@ export const projects = [
     tags: ["React JS", "API", "Image Processing", "HTML", "CSS", "JavaScript"],
     github: "#",
     webapp: "https://removeyourbg.netlify.app/"
-  }
+  },
+  {
+    id: 9,
+    title: "Study2Uni (Web App)",
+    description: "A React-based education platform that helps students discover universities, programs, and study opportunities, featuring responsive UI, structured content management, and seamless navigation for informed decision-making.",
+    image: study,
+    tags: ["React JS", "API", "HTML", "CSS", "JavaScript", "Content Management",  "User Experience","Laravel","MySQL","PHP","Bootstrap","Figma","Git","GitHub",],
+    github: "#",
+    webapp: "https://study2uni.com/"
+  },
 ];
