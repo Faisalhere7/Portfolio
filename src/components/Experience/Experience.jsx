@@ -1,95 +1,122 @@
 import React from "react";
-import { experiences } from "../../constants"; // Import your data
+import { experiences } from "../../constants";
 
 const Experience = () => {
   return (
     <section
       id="experience"
-      className="py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[16vw] font-sans bg-skills-gradient clip-path-custom-2"
+      className="py-24 px-[12vw] md:px-[7vw] lg:px-[16vw] font-sans bg-skills-gradient clip-path-custom-2 overflow-hidden"
     >
       {/* Section Title */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">EXPERIENCE</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
-          A collection of my freelance work across multiple domains
+      <div className="text-center mb-20">
+        <h2 className="text-5xl font-bold text-white tracking-tight">EXPERIENCE</h2>
+        <div className="w-40 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mt-6 rounded-full"></div>
+        <p className="text-gray-300 mt-6 text-lg max-w-2xl mx-auto">
+          A collection of my freelance and professional work across multiple domains
         </p>
       </div>
 
-      {/* Experience Timeline */}
-      <div className="relative">
-        {/* Vertical line */}
-        <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 sm:-translate-x-0 w-1 bg-white h-full"></div>
+      {/* Timeline Container */}
+      <div className="relative max-w-7xl mx-auto">
+        {/* Central Timeline Line */}
+        <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full hidden sm:block">
+          <div className="absolute inset-0 bg-gradient-to-b from-purple-500 via-pink-500 to-cyan-500 blur-lg opacity-60"></div>
+          <div className="relative h-full bg-gradient-to-b from-purple-400 via-pink-400 to-cyan-400 rounded-full"></div>
+        </div>
 
-        {/* Experience Entries */}
-        {experiences.map((experience, index) => (
-          <div
-            key={experience.id}
-            className={`flex flex-col sm:flex-row items-center mb-16 ${
-              index % 2 === 0 ? "sm:justify-end" : "sm:justify-start"
-            }`}
-          >
-            {/* Timeline Circle */}
-            <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-400 border-4 border-[#8245ec] w-12 h-12 sm:w-16 sm:h-16 rounded-full flex justify-center items-center z-10">
-              <img
-                src={experience.img}
-                alt={experience.company}
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
+        {/* Group cards in pairs */}
+        {Array.from({ length: Math.ceil(experiences.length / 2) }).map((_, pairIndex) => {
+          const firstIndex = pairIndex * 2;
+          const secondIndex = firstIndex + 1;
+          const first = experiences[firstIndex];
+          const second = experiences[secondIndex];
 
-            {/* Content Section */}
-            <div
-              className={`w-full sm:max-w-md p-4 sm:p-8 rounded-2xl shadow-2xl border border-white bg-gray-900 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] ${
-                index % 2 === 0 ? "sm:ml-0" : "sm:mr-0"
-              } sm:ml-44 sm:mr-44 ml-8 transform transition-transform duration-300 hover:scale-105`}
-            >
-              {/* Flex container for image and text */}
-              <div className="flex items-center space-x-6">
-                {/* Company Logo/Image */}
-                <div className="w-16 h-16 bg-white rounded-md overflow-hidden">
-                  <img
-                    src={experience.img}
-                    alt={experience.company}
-                    className="w-full h-full object-cover"
-                  />
+          return (
+            <div key={pairIndex} className="relative mb-32 last:mb-0 flex flex-col sm:flex-row items-start">
+              {/* Timeline Dot for First Card */}
+              {first && (
+                <div
+                  className="absolute left-1/2 -translate-x-1/2 top-12 w-8 h-8 
+                  bg-gradient-to-br from-purple-600 to-pink-600 rounded-full 
+                  border-4 border-gray-900 shadow-2xl shadow-purple-600/70 
+                  ring-4 ring-purple-500/40 z-20 hidden sm:block animate-pulse"
+                />
+              )}
+
+              {/* Left Card */}
+              {first && (
+                <div className="w-full sm:w-1/2 flex justify-end pr-8 mb-8 sm:mb-0">
+                  <ExperienceCard experience={first} />
                 </div>
+              )}
 
-                {/* Role, Company Name, and Date */}
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-white">
-                      {experience.role}
-                    </h3>
-                    <h4 className="text-md sm:text-sm text-gray-300">
-                      {experience.company}
-                    </h4>
-                  </div>
-                  {/* Date at the bottom */}
-                  <p className="text-sm text-gray-500 mt-2">{experience.date}</p>
+              {/* Right Card */}
+              {second && (
+                <div className="w-full sm:w-1/2 flex justify-start pl-8">
+                  <ExperienceCard experience={second} />
                 </div>
-              </div>
-
-              <p className="mt-4 text-gray-400">{experience.desc}</p>
-              <div className="mt-4">
-                <h5 className="font-medium text-white">Skills:</h5>
-                <ul className="flex flex-wrap mt-2">
-                  {experience.skills.map((skill, index) => (
-                    <li
-                      key={index}
-                      className="bg-[#8245ec] text-gray-300 px-4 py-1 text-xs sm:text-sm rounded-lg mr-2 mb-2 border border-gray-400"
-                    >
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              )}
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
 };
+
+// Experience Card Component
+const ExperienceCard = ({ experience }) => (
+  <div
+    className="relative p-8 rounded-2xl bg-gray-900/80 backdrop-blur-xl border border-purple-500/30 shadow-2xl 
+    transition-all duration-500 hover:scale-105 hover:shadow-purple-500/50 hover:border-purple-400 
+    group overflow-hidden"
+  >
+    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl"></div>
+
+    <div className="relative z-10">
+      <div className="flex items-center gap-6 mb-6">
+        <div className="relative w-20 h-20 bg-white rounded-xl overflow-hidden shadow-lg ring-4 ring-purple-500/30 transition-transform duration-300 group-hover:scale-110">
+          <img
+            src={experience.img}
+            alt={`${experience.company} logo`}
+            className="w-full h-full object-contain p-3"
+            onError={(e) => (e.target.src = "/fallback-logo.png")}
+          />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white to-transparent opacity-20 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
+        </div>
+
+        <div className="flex-1">
+          <h3 className="text-2xl font-bold text-white group-hover:text-purple-300 transition-colors">
+            {experience.role}
+          </h3>
+          <h4 className="text-lg text-purple-300 font-medium mt-1">
+            {experience.company}
+          </h4>
+          <p className="text-sm text-gray-400 mt-2 flex items-center">
+            {experience.date}
+          </p>
+        </div>
+      </div>
+
+      <p className="text-gray-300 leading-relaxed mb-6">{experience.desc}</p>
+
+      <div>
+        <h5 className="text-white font-semibold mb-3">Key Skills & Tools:</h5>
+        <div className="flex flex-wrap gap-3">
+          {experience.skills.map((skill, i) => (
+            <span
+              key={i}
+              className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-pink-600 
+              rounded-full border border-purple-400/50 shadow-md hover:shadow-purple-500/50 
+              transition-all duration-300 hover:translate-y-[-2px]"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 export default Experience;

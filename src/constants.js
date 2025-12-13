@@ -8,10 +8,8 @@ import angularLogo from './assets/tech_logo/angular.png';
 import reduxLogo from './assets/tech_logo/redux.png';
 import nextjsLogo from './assets/tech_logo/nextjs.png';
 import tailwindcssLogo from './assets/tech_logo/tailwindcss.png';
-import gsapLogo from './assets/tech_logo/gsap.png';
 import materialuiLogo from './assets/tech_logo/materialui.png';
 import bootstrapLogo from './assets/tech_logo/bootstrap.png';
-import springbootLogo from './assets/tech_logo/springboot.png';
 import nodejsLogo from './assets/tech_logo/nodejs.png';
 import expressjsLogo from './assets/tech_logo/express.png';
 import mysqlLogo from './assets/tech_logo/mysql.png';
@@ -28,26 +26,21 @@ import vscodeLogo from './assets/tech_logo/vscode.png';
 import postmanLogo from './assets/tech_logo/postman.png';
 import mcLogo from './assets/tech_logo/mc.png';
 import figmaLogo from './assets/tech_logo/figma.png';
-import netlifyLogo from './assets/tech_logo/netlify.png';
 import vercelLogo from './assets/tech_logo/vercel.png';
 import postgreLogo from './assets/tech_logo/postgre.png';
-import csharpLogo from './assets/tech_logo/csharp.png';
-
+import webverseLogo from './assets/company_logo/bitnest.jpeg';
 // Experience Logos
-import webverseLogo from './assets/company_logo/Fiverr.png';
-import agcLogo from './assets/company_logo/Fiverr.png';
-import newtonschoolLogo from './assets/company_logo/Fiverr.png';
+import syb from './assets/company_logo/syb_ecosystem.jpeg';
+import agcLogo from './assets/company_logo/bitnest.jpeg';
+import newtonschoolLogo from './assets/company_logo/bitnest.jpeg';
 
 // Education Logos
 import pny from './assets/education_logo/pny.png';
 import uos from './assets/education_logo/uos.png';
 
-// Project Logos
-import githubdetLogo from './assets/work_logo/github_det.png';
-import csprepLogo from './assets/work_logo/cs_prep.png';
+
 import movierecLogo from './assets/work_logo/movie_rec.png';
 import taskremLogo from './assets/work_logo/task_rem.png';
-import npmLogo from './assets/work_logo/npm.png';
 import webverLogo from './assets/work_logo/web_dig.png';
 import cmLogo from './assets/work_logo/cm.png';
 import imagesearchLogo from './assets/work_logo/image_search.png';
@@ -111,7 +104,7 @@ export const experiences = [
   {
     id: 0,
     img: webverseLogo,
-    role: "MERN Stack Developer",
+    role: "MERN Stack",
     company: "Freelancing",
     date: "June 2024 - Present",
     desc: "Developed several personal and academic web projects using React.js, Node.js, Express.js, and MongoDB. Built responsive and user-friendly interfaces with HTML, CSS, JavaScript, and modern frameworks. Focused on creating scalable, performance-optimized applications with clean and maintainable code. Gained hands-on experience in full-stack development, RESTful APIs, and project deployment.",
@@ -119,6 +112,15 @@ export const experiences = [
   },
   {
     id: 1,
+    img: syb,
+    role: "Full Stack Developer",
+    company: "SYB Ecosystem",
+    date: "July 2025 - Present",
+    desc: "Developed several personal and academic web projects using React.js, Node.js, Express.js, and MongoDB. Built responsive and user-friendly interfaces with HTML, CSS, JavaScript, and modern frameworks. Focused on creating scalable, performance-optimized applications with clean and maintainable code. Gained hands-on experience in full-stack development, RESTful APIs, and project deployment.",
+    skills: ["HTML", "CSS", "JavaScript", "React JS", "TypeScript", "Node JS", "Tailwind CSS", "MongoDB", "Redux", "Wordpress","SEO"]
+  },
+  {
+    id: 2,
     img: agcLogo,
     role: "Digital Marketing",
     company: "Independent",
@@ -127,7 +129,7 @@ export const experiences = [
     skills: ["Social Media Marketing", "Campaigns", "Accounts Management", "SEO", "Accounts Growth"]
   },
   {
-    id: 2,
+    id: 3,
     img: newtonschoolLogo,
     role: "Graphic Design",
     company: "Independent",
